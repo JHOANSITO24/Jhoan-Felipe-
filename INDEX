@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Fist Boxing – Portafolio de Servicios</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --red: #C0170E;
+    --red-dark: #8B0F09;
+    --red-light: #FF3B2E;
+    --gold: #D4A92A;
+    --gold-light: #F5D06A;
+    --ink: #0E0C0B;
+    --ink2: #1C1916;
+    --ink3: #2A2520;
+    --smoke: #F5F1EB;
+    --smoke2: #EDE8E0;
+    --muted: #7A736B;
+    --white: #FDFCFA;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--smoke);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 5vw 8vh;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 40%, rgba(192,23,14,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(212,169,42,0.08) 0%, transparent 60%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.025) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.025) 60px);
+  }
+
+  .hero-number {
+    position: absolute;
+    right: -2vw;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(220px, 28vw, 360px);
+    line-height: 1;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -10px;
+    user-select: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 2rem;
+    width: fit-content;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 140px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 .accent { color: var(--red); }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: clamp(14px, 1.8vw, 18px);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--red-light); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--smoke2);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+  .hero-stats {
+    position: absolute;
+    right: 5vw;
+    bottom: 8vh;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    z-index: 1;
+  }
+
+  .stat-item {
+    text-align: right;
+    border-right: 2px solid var(--red);
+    padding-right: 16px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(14,12,11,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 5vw; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.75;
+  }
+
+  /* ── SERVICIOS ── */
+  #servicios { background: var(--ink2); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .service-card {
+    background: var(--ink3);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--red);
+    transition: height 0.4s ease;
+  }
+
+  .service-card:hover { background: #221E1A; }
+  .service-card:hover::before { height: 100%; }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(192,23,14,0.15);
+    border: 1px solid rgba(192,23,14,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+
+  .service-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(212,169,42,0.4);
+    padding-bottom: 2px;
+  }
+
+  /* ── PLANES ── */
+  #planes { background: var(--ink); }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .plan-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 36px 28px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .plan-card:hover { border-color: rgba(255,255,255,0.2); }
+
+  .plan-card.featured {
+    border-color: var(--red);
+    background: rgba(192,23,14,0.06);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -1px; right: 28px;
+    background: var(--red);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+  }
+
+  .plan-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .plan-price {
+    margin: 16px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .plan-price .amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .plan-price .currency {
+    font-size: 20px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .plan-price .period {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .plan-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 20px 0;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .plan-features li {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--smoke2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plan-features li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    flex-shrink: 0;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .plan-features li.off {
+    color: rgba(255,255,255,0.2);
+  }
+
+  .plan-features li.off::before {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .plan-cta {
+    display: block;
+    margin-top: 28px;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .plan-card:not(.featured) .plan-cta {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--smoke);
+  }
+
+  .plan-card:not(.featured) .plan-cta:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .plan-card.featured .plan-cta {
+    background: var(--red);
+    color: #fff;
+    border: 1px solid var(--red);
+  }
+
+  .plan-card.featured .plan-cta:hover { background: var(--red-light); }
+
+  /* ── METODOLOGÍA ── */
+  #metodologia { background: var(--ink2); }
+
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .method-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { display: none; }
+    .nav-links { display: none; }
+  }
+
+  .method-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    min-width: 32px;
+    margin-top: 2px;
+  }
+
+  .step h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .step p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .method-visual {
+    background: var(--ink3);
+    padding: 40px;
+    border-left: 3px solid var(--red);
+  }
+
+  .method-visual h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+
+  .attr-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .attr-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 36px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .attr-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .attr-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .attr-fill {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    background: var(--red);
+    transition: width 1.2s cubic-bezier(.16,1,.3,1);
+  }
+
+  .attr-pct {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    text-align: right;
+  }
+
+  /* ── EQUIPO ── */
+  #equipo { background: var(--ink); }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .coach-card {
+    background: var(--ink3);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coach-avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--red-dark);
+    border: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .coach-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  .coach-role {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+    margin-bottom: 14px;
+  }
+
+  .coach-bio {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .coach-medals {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .medal {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border: 1px solid rgba(212,169,42,0.35);
+    color: var(--gold-light);
+    background: rgba(212,169,42,0.08);
+  }
+
+  /* ── INSTALACIONES ── */
+  #instalaciones { background: var(--ink2); }
+
+  .facilities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .facility-item {
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .facility-item:hover { border-color: rgba(192,23,14,0.5); }
+
+  .facility-icon {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+
+  .facility-item h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .facility-item p {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACTO ── */
+  #contacto {
+    background: var(--ink);
+    padding: 100px 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    #contacto { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .contact-info h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .contact-info h2 span { color: var(--red); }
+
+  .contact-info p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-detail span {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--smoke2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-detail span::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    background: var(--ink3);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--smoke);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--muted);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus {
+    border-color: rgba(192,23,14,0.6);
+  }
+
+  .contact-form select option { background: var(--ink2); }
+
+  .contact-form textarea { resize: none; height: 120px; }
+
+  .contact-form button {
+    background: var(--red);
+    border: none;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .contact-form button:hover { background: var(--red-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080706;
+    padding: 40px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-copy {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.06em;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#"><span>Iron</span> Fist Boxing</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#planes">Planes</a></li>
+    <li><a href="#metodologia">Metodología</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-number">01</div>
+
+  <div class="hero-badge">▲ Alto Rendimiento Deportivo</div>
+
+  <h1>
+    El <span class="accent">ring</span><br>
+    te espera
+  </h1>
+
+  <p class="hero-sub">
+    Centro especializado en boxeo profesional y formativo. Entrenamiento técnico, preparación física y desarrollo mental para todos los niveles.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#servicios" class="btn-primary">Ver servicios</a>
+    <a href="#contacto" class="btn-ghost">Clase de prueba</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">14+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">320</div>
+      <div class="stat-label">Atletas formados</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">47</div>
+      <div class="stat-label">Títulos regionales</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <p class="section-eyebrow reveal">Lo que ofrecemos</p>
+  <h2 class="section-title reveal">Servicios</h2>
+  <p class="section-desc reveal">Programas diseñados por entrenadores certificados, adaptados a cada etapa del deportista.</p>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">🥊</div>
+      <h3>Boxeo Técnico</h3>
+      <p>Fundamentos del boxeo clásico: guardia, desplazamiento, jab, cross, uppercut y ganchos. Corrección postura y mecánica de golpe.</p>
+      <span class="service-tag">Todos los niveles</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-icon">🏆</div>
+      <h3>Preparación Competitiva</h3>
+      <p>Plan periodizado para competidores activos. Sparring controlado, análisis de rivales, estrategia de pelea y trabajo de esquina.</p>
+      <span class="service-tag">Nivel avanzado</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-icon">💪</div>
+      <h3>Boxing Fitness</h3>
+      <p>Clases grupales que combinan cardio de alta intensidad con movimientos del boxeo. Quema calórica máxima sin contacto.</p>
+      <span class="service-tag">Sin experiencia previa</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-icon">🧒</div>
+      <h3>Escuela Infantil</h3>
+      <p>Programa para niños de 6 a 14 años. Disciplina, respeto y autoconfianza a través del boxeo formativo. Grupos reducidos.</p>
+      <span class="service-tag">6 – 14 años</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <div class="service-icon">🧠</div>
+      <h3>Entrenamiento Personal</h3>
+      <p>Sesiones 1 a 1 con entrenador dedicado. Máxima personalización de carga, técnica y objetivos individuales.</p>
+      <span class="service-tag">Todas las edades</span>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">06</div>
+      <div class="service-icon">⚡</div>
+      <h3>Preparación Física Integral</h3>
+      <p>Fuerza funcional, velocidad de reacción, resistencia anaeróbica y movilidad. Complemento esencial para el rendimiento en el ring.</p>
+      <span class="service-tag">Complementario</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section id="planes">
+  <p class="section-eyebrow reveal">Inversión en tu rendimiento</p>
+  <h2 class="section-title reveal">Planes y Tarifas</h2>
+  <p class="section-desc reveal">Escoge el plan que mejor se adapta a tu ritmo y tus metas. Sin permanencia mínima.</p>
+
+  <div class="plans-grid">
+    <div class="plan-card reveal">
+      <div class="plan-name">Básico</div>
+      <div class="plan-price">
+        <span class="currency">$</span>
+        <span class="amount">120</span>
+        <span class="period">/ mes</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>2 clases grupales/semana</li>
+        <li>Acceso a bolsas libres</li>
+        <li>Locker incluido</li>
+        <li class="off">Entrenamiento personal</li>
+        <li class="off">Sparring supervisado</li>
+        <li class="off">Análisis de video</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Comenzar</a>
+    </div>
+
+    <div class="plan-card featured reveal">
+      <div class="featured-badge">Más popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">
+        <span class="currency">$</span>
+        <span class="amount">220</span>
+        <span class="period">/ mes</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Clases grupales ilimitadas</li>
+        <li>Acceso a bolsas libres</li>
+        <li>Locker incluido</li>
+        <li>2 sesiones personales/mes</li>
+        <li>Sparring supervisado</li>
+        <li class="off">Análisis de video</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Comenzar</a>
+    </div>
+
+    <div class="plan-card reveal">
+      <div class="plan-name">Elite</div>
+      <div class="plan-price">
+        <span class="currency">$</span>
+        <span class="amount">380</span>
+        <span class="period">/ mes</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Clases grupales ilimitadas</li>
+        <li>Acceso total a instalaciones</li>
+        <li>Locker premium</li>
+        <li>8 sesiones personales/mes</li>
+        <li>Sparring supervisado</li>
+        <li>Análisis de video completo</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Comenzar</a>
+    </div>
+
+    <div class="plan-card reveal">
+      <div class="plan-name">Corporativo</div>
+      <div class="plan-price">
+        <span class="currency"></span>
+        <span class="amount" style="font-size:36px; margin-top:8px;">A medida</span>
+      </div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Clases en empresa o gym</li>
+        <li>Grupos de 5 a 30 personas</li>
+        <li>Horarios flexibles</li>
+        <li>Team building / bienestar</li>
+        <li>Instructor certificado</li>
+        <li>Informe mensual de progreso</li>
+      </ul>
+      <a href="#contacto" class="plan-cta">Solicitar cotización</a>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section id="metodologia">
+  <p class="section-eyebrow reveal">Nuestro proceso</p>
+  <h2 class="section-title reveal">Metodología</h2>
+
+  <div class="method-grid">
+    <div class="method-steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h4>Evaluación inicial</h4>
+          <p>Test físico, análisis postural y entrevista motivacional para conocer tu punto de partida y establecer objetivos reales.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h4>Plan individualizado</h4>
+          <p>Diseño de periodización semanal y mensual. Cargas progresivas ajustadas al nivel, disponibilidad y metas de cada atleta.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h4>Entrenamiento técnico-táctico</h4>
+          <p>Trabajo de fundamentos, combinaciones, defensa y distancia. Videos de referencia y corrección en tiempo real.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h4>Preparación física específica</h4>
+          <p>Circuitos de fuerza, velocidad y resistencia adaptados al boxeo. Integración con la técnica para máxima transferencia.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <h4>Seguimiento y ajuste</h4>
+          <p>Revisiones mensuales de progreso. Ajuste de cargas y objetivos según evolución. Reporte digital para el atleta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="method-visual reveal">
+      <h3>Atributos de desarrollo</h3>
+      <div class="attr-row">
+        <div class="attr-item">
+          <span class="attr-label">Técnica</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="96"></div></div>
+          <span class="attr-pct">96%</span>
+        </div>
+        <div class="attr-item">
+          <span class="attr-label">Fuerza</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="88"></div></div>
+          <span class="attr-pct">88%</span>
+        </div>
+        <div class="attr-item">
+          <span class="attr-label">Velocidad</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="92"></div></div>
+          <span class="attr-pct">92%</span>
+        </div>
+        <div class="attr-item">
+          <span class="attr-label">Resistencia</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="85"></div></div>
+          <span class="attr-pct">85%</span>
+        </div>
+        <div class="attr-item">
+          <span class="attr-label">Mentalidad</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="90"></div></div>
+          <span class="attr-pct">90%</span>
+        </div>
+        <div class="attr-item">
+          <span class="attr-label">Táctica</span>
+          <div class="attr-bar"><div class="attr-fill" data-w="82"></div></div>
+          <span class="attr-pct">82%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo">
+  <p class="section-eyebrow reveal">Quiénes te guían</p>
+  <h2 class="section-title reveal">Cuerpo Técnico</h2>
+
+  <div class="team-grid">
+    <div class="coach-card reveal">
+      <div class="coach-avatar">MR</div>
+      <div class="coach-name">Miguel Restrepo</div>
+      <div class="coach-role">Director Técnico · Head Coach</div>
+      <p class="coach-bio">Ex-boxeador profesional con 18 años de carrera. Entrenador certificado AIBA nivel 3. Formó a 6 campeones nacionales.</p>
+      <div class="coach-medals">
+        <span class="medal">AIBA Nivel 3</span>
+        <span class="medal">Campeón Nacional 2009</span>
+      </div>
+    </div>
+
+    <div class="coach-card reveal">
+      <div class="coach-avatar">CA</div>
+      <div class="coach-name">Carolina Arias</div>
+      <div class="coach-role">Preparadora Física</div>
+      <p class="coach-bio">Licenciada en Ciencias del Deporte. Especialista en periodización para deportes de combate y alto rendimiento femenino.</p>
+      <div class="coach-medals">
+        <span class="medal">Ciencias del Deporte</span>
+        <span class="medal">CSCS Certified</span>
+      </div>
+    </div>
+
+    <div class="coach-card reveal">
+      <div class="coach-avatar">JV</div>
+      <div class="coach-name">Juan Vega</div>
+      <div class="coach-role">Entrenador Juvenil</div>
+      <p class="coach-bio">Especialista en boxeo formativo para jóvenes. 8 años trabajando con categorías infantiles y juveniles. Psicología deportiva aplicada.</p>
+      <div class="coach-medals">
+        <span class="medal">AIBA Nivel 2</span>
+        <span class="medal">Psicología Deportiva</span>
+      </div>
+    </div>
+
+    <div class="coach-card reveal">
+      <div class="coach-avatar">LP</div>
+      <div class="coach-name">Laura Peña</div>
+      <div class="coach-role">Nutrición Deportiva</div>
+      <p class="coach-bio">Nutricionista especializada en deportes de resistencia y combate. Planes de peso y composición corporal para competición.</p>
+      <div class="coach-medals">
+        <span class="medal">Nutrición Clínica</span>
+        <span class="medal">Deportes de Combate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALACIONES -->
+<section id="instalaciones">
+  <p class="section-eyebrow reveal">Nuestro espacio</p>
+  <h2 class="section-title reveal">Instalaciones</h2>
+  <p class="section-desc reveal">Un gimnasio diseñado para el rendimiento, con equipamiento de nivel profesional.</p>
+
+  <div class="facilities-list">
+    <div class="facility-item reveal">
+      <div class="facility-icon">🥊</div>
+      <h4>Ring reglamentario</h4>
+      <p>Ring de 6 × 6 m homologado, cuerdas de competición y esquinas completas para sparring oficial.</p>
+    </div>
+    <div class="facility-item reveal">
+      <div class="facility-icon">🎯</div>
+      <h4>Sala de bolsas</h4>
+      <p>18 sacos de distintos pesos (40 – 80 kg), bolsas de velocidad, peras de pared y maize bags.</p>
+    </div>
+    <div class="facility-item reveal">
+      <div class="facility-icon">🏋️</div>
+      <h4>Zona de fuerza</h4>
+      <p>Plataformas olímpicas, kettlebells, medicina balls, TRX y área de pliometría específica para boxeadores.</p>
+    </div>
+    <div class="facility-item reveal">
+      <div class="facility-icon">📹</div>
+      <h4>Sistema de video</h4>
+      <p>Cámaras de análisis en ring y bolsas para revisión técnica en tiempo real con el entrenador.</p>
+    </div>
+    <div class="facility-item reveal">
+      <div class="facility-icon">🧘</div>
+      <h4>Sala de recuperación</h4>
+      <p>Zona de estiramiento, rodillos de espuma, área de fisioterapia y crioterapia localizada.</p>
+    </div>
+    <div class="facility-item reveal">
+      <div class="facility-icon">🚿</div>
+      <h4>Vestuarios</h4>
+      <p>Duchas individuales, taquillas de seguridad y área de descanso post-entrenamiento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-info reveal">
+    <h2>Empieza<br>a <span>entrenar</span><br>hoy</h2>
+    <p>La primera clase es gratis. Sin compromiso, sin excusas. Solo ven con ropa cómoda y ganas de aprender.</p>
+    <div class="contact-detail">
+      <span>Cra 45 #67-89, Medellín, Antioquia</span>
+      <span>Lunes a viernes: 6 am – 9 pm</span>
+      <span>Sábados: 7 am – 3 pm</span>
+      <span>+57 314 555 0100</span>
+      <span>info@ironfistboxing.co</span>
+    </div>
+  </div>
+
+  <div class="contact-form reveal">
+    <input type="text" placeholder="Nombre completo">
+    <input type="email" placeholder="Correo electrónico">
+    <input type="tel" placeholder="Teléfono / WhatsApp">
+    <select>
+      <option value="" disabled selected>Servicio de interés</option>
+      <option>Boxeo Técnico</option>
+      <option>Preparación Competitiva</option>
+      <option>Boxing Fitness</option>
+      <option>Escuela Infantil</option>
+      <option>Entrenamiento Personal</option>
+      <option>Plan Corporativo</option>
+    </select>
+    <textarea placeholder="Cuéntanos tu experiencia previa y tus objetivos…"></textarea>
+    <button type="button">Solicitar clase de prueba</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Iron</span> Fist Boxing</div>
+  <div class="footer-copy">© 2025 Iron Fist Boxing · Todos los derechos reservados</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  const fills = document.querySelectorAll('.attr-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const w = e.target.getAttribute('data-w');
+        e.target.style.width = w + '%';
+        barObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  fills.forEach(f => { f.style.width = '0%'; barObserver.observe(f); });
+</script>
+</body>
+</html>
